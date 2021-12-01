@@ -5,7 +5,9 @@
 [![Tests](https://img.shields.io/github/workflow/status/pkgz/websocket/Code%20coverage)](https://github.com/pkgz/websocket/actions)
 [![codecov](https://img.shields.io/codecov/c/gh/pkgz/websocket)](https://codecov.io/gh/pkgz/websocket)
 
-Simple websocket library for golang
+Simple websocket library for golang forked to actually work.
+
+This fork solves the issue outlined [here](https://github.com/pkgz/websocket/issues/16)
 
 ## Installation
 ```bash
