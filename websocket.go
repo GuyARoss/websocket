@@ -56,8 +56,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/gobwas/ws"
-	"github.com/gobwas/ws/wsutil"
 	"io"
 	"io/ioutil"
 	"log"
@@ -65,6 +63,9 @@ import (
 	"net/url"
 	"reflect"
 	"sync"
+
+	"github.com/gobwas/ws"
+	"github.com/gobwas/ws/wsutil"
 )
 
 // Server allows keeping connection list, broadcast channel and callbacks list.
@@ -127,7 +128,7 @@ func (s *Server) Run(ctx context.Context) {
 				go func() {
 					s.mu.RLock()
 					for c := range s.connections {
-						_ = c.Emit(msg.Name, msg.Data)
+						_ = c.Emit(msg.Name, string(msg.Data))
 					}
 					s.mu.RUnlock()
 				}()
